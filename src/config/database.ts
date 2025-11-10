@@ -69,6 +69,6 @@ const initializeDatabase = (): Database.Database => {
 };
 
 // Initialize and export the database instance.
-export const db = initializeDatabase();
+export const db: Database.Database = initializeDatabase();
 
 export default db;
