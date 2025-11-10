@@ -30,7 +30,8 @@
   ],
 
   "containerEnv": {
-    "DISPLAY": "${localEnv:DISPLAY}"
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "TZ": "Africa/Johannesburg"
   },
 
   "remoteUser": "node"
