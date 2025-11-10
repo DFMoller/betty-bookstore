@@ -60,8 +60,9 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Create seed data for testing (loaded from `config/seed-data.json`)
 - [x] Add database connection logic
 
-### 6. Implement layers incrementally
-**Status:** In Progress
+### 6. ✅ Implement layers incrementally
+**Status:** COMPLETE
+**Date:** 2025-11-10
 
 #### 6.1 ✅ Models Layer
 **Status:** COMPLETE
@@ -96,10 +97,12 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Connect routes to controllers
 - [x] Set up Express app with middleware
 
-#### 6.6 Middleware & Error Handling
+#### 6.6 ✅ Middleware & Error Handling
+**Status:** COMPLETE
+**Date:** 2025-11-10
 - [x] Create custom error classes (NotFoundError, ValidationError) - completed in Step 6.3
-- [ ] Implement centralized error handling middleware
-- [ ] Set up request logging
+- [x] Implement centralized error handling middleware
+- [x] Set up request logging
 
 ### 7. Write tests alongside implementation
 **Status:** Not Started
