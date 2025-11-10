@@ -51,13 +51,14 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Dev: @types/node, @types/express, @types/better-sqlite3, @types/cors, typescript, ts-node, nodemon
 - [x] Testing: jest, @types/jest, ts-jest, supertest, @types/supertest
 
-### 5. Set up database schema and initialization
-**Status:** Not Started
+### 5. ✅ Set up database schema and initialization
+**Status:** COMPLETE
+**Date:** 2025-11-10
 **Tasks:**
-- [ ] Create database initialization script in `config/database.ts`
-- [ ] Define books table schema (id, title, author, genre, price)
-- [ ] Create seed data for testing
-- [ ] Add database connection logic
+- [x] Create database initialization script in `config/database.ts`
+- [x] Define books table schema (id, title, author, genre, price)
+- [x] Create seed data for testing (loaded from `config/seed-data.json`)
+- [x] Add database connection logic
 
 ### 6. Implement layers incrementally
 **Status:** Not Started

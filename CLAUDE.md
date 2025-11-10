@@ -137,6 +137,7 @@ Use `.env` file with:
 - **Line length:** Maximum line length is 120 characters.
 - **Comments:** All comments must end with periods.
 - **Function docstrings:** Add docstrings for functions that are more than a couple of lines long.
+- **Docstring imperative mood:** Use imperative mood for the first sentence in a docstring (e.g., "Initialize the database" instead of "Initializes the database").
 - **Docstring parameters:** Do not specify parameter and return types in docstrings unless the function is complex and types are not obvious (TypeScript types already provide this information).
 
 ## Project Structure Reference
