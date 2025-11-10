@@ -75,10 +75,12 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Implement BookRepository with CRUD methods
 - [x] Methods: create, findById, findAll, findByGenre, update, delete
 
-#### 6.3 Service Layer
-- [ ] Implement BookService with business logic
-- [ ] Implement discount calculation logic
-- [ ] Handle business validation and errors
+#### 6.3 ✅ Service Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Implement BookService with business logic
+- [x] Implement discount calculation logic
+- [x] Handle business validation and errors
 
 #### 6.4 Controller Layer
 - [ ] Implement BookController with HTTP handlers
