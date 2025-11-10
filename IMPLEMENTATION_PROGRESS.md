@@ -82,10 +82,12 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Implement discount calculation logic
 - [x] Handle business validation and errors
 
-#### 6.4 Controller Layer
-- [ ] Implement BookController with HTTP handlers
-- [ ] Handle request/response formatting
-- [ ] Validation middleware with Zod
+#### 6.4 ✅ Controller Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Implement BookController with HTTP handlers
+- [x] Handle request/response formatting
+- [x] Validation middleware with Zod
 
 #### 6.5 Routes Layer
 - [ ] Define book routes
