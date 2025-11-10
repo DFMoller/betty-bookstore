@@ -61,11 +61,13 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Add database connection logic
 
 ### 6. Implement layers incrementally
-**Status:** Not Started
+**Status:** In Progress
 
-#### 6.1 Models Layer
-- [ ] Create `Book` interface
-- [ ] Create DTOs: CreateBookDTO, UpdateBookDTO
+#### 6.1 ✅ Models Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Create `Book` interface
+- [x] Create DTOs: CreateBookDTO, UpdateBookDTO
 
 #### 6.2 Repository Layer
 - [ ] Implement BookRepository with CRUD methods
