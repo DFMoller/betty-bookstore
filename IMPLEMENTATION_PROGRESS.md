@@ -41,7 +41,7 @@ This document tracks the implementation progress of the Bookstore API.
 **Tasks:**
 - [x] Create `src/` directory
 - [x] Create subdirectories: controllers, services, repositories, models, middleware, routes, utils, config
-- [ ] Create `src/app.ts` and `src/server.ts` (pending - will be created with layer implementation)
+- [x] Create `src/app.ts` and `src/server.ts`
 
 ### 4. ✅ Install dependencies
 **Status:** COMPLETE
@@ -89,13 +89,15 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Handle request/response formatting
 - [x] Validation middleware with Zod
 
-#### 6.5 Routes Layer
-- [ ] Define book routes
-- [ ] Connect routes to controllers
-- [ ] Set up Express app with middleware
+#### 6.5 ✅ Routes Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Define book routes
+- [x] Connect routes to controllers
+- [x] Set up Express app with middleware
 
 #### 6.6 Middleware & Error Handling
-- [ ] Create custom error classes (NotFoundError, ValidationError)
+- [x] Create custom error classes (NotFoundError, ValidationError) - completed in Step 6.3
 - [ ] Implement centralized error handling middleware
 - [ ] Set up request logging
 
