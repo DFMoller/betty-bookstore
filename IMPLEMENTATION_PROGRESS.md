@@ -105,12 +105,18 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Set up request logging
 
 ### 7. Write tests alongside implementation
-**Status:** Not Started
+**Status:** In Progress
 
-#### 7.1 Unit Tests (Jest)
-- [ ] Test BookService discount calculation logic
-- [ ] Test edge cases (empty genre, invalid discount, etc.)
-- [ ] Mock repository layer
+#### 7.1 ✅ Unit Tests (Jest)
+**Status:** COMPLETE
+**Date:** 2025-11-12
+- [x] Test BookService discount calculation logic
+- [x] Test edge cases (empty genre, invalid discount, etc.)
+- [x] Mock repository layer
+- [x] Test all CRUD operations (createBook, getBookById, getAllBooks, getBooksByGenre, updateBook, deleteBook)
+- [x] Test validation errors (price validation, discount percentage validation)
+- [x] Test NotFoundError scenarios
+- [x] 24 tests total, all passing ✓
 
 #### 7.2 Integration Tests (Supertest)
 - [ ] Test POST /books (create)
