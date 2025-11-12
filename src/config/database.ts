@@ -1,7 +1,6 @@
 import Database from 'better-sqlite3';
 import * as dotenv from 'dotenv';
-import * as path from 'path';
-import * as fs from 'fs';
+import seedData from './seed-data.json';
 
 // Load environment variables.
 dotenv.config();
@@ -51,11 +50,6 @@ export const initializeDatabase = (dbPath?: string, shouldSeed: boolean = true):
 
     if (count.count === 0) {
       console.log('Seeding database with initial data...');
-
-      // Load seed data from JSON file.
-      const seedDataPath = path.join(__dirname, 'seed-data.json');
-      const seedDataRaw = fs.readFileSync(seedDataPath, 'utf-8');
-      const seedData: SeedBook[] = JSON.parse(seedDataRaw);
 
       const insertStmt = db.prepare('INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)');
 
