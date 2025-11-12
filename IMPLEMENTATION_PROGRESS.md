@@ -41,7 +41,7 @@ This document tracks the implementation progress of the Bookstore API.
 **Tasks:**
 - [x] Create `src/` directory
 - [x] Create subdirectories: controllers, services, repositories, models, middleware, routes, utils, config
-- [ ] Create `src/app.ts` and `src/server.ts` (pending - will be created with layer implementation)
+- [x] Create `src/app.ts` and `src/server.ts`
 
 ### 4. ✅ Install dependencies
 **Status:** COMPLETE
@@ -60,8 +60,9 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Create seed data for testing (loaded from `config/seed-data.json`)
 - [x] Add database connection logic
 
-### 6. Implement layers incrementally
-**Status:** In Progress
+### 6. ✅ Implement layers incrementally
+**Status:** COMPLETE
+**Date:** 2025-11-10
 
 #### 6.1 ✅ Models Layer
 **Status:** COMPLETE
@@ -69,58 +70,90 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Create `Book` interface
 - [x] Create DTOs: CreateBookDTO, UpdateBookDTO
 
-#### 6.2 Repository Layer
-- [ ] Implement BookRepository with CRUD methods
-- [ ] Methods: create, findById, findAll, findByGenre, update, delete
+#### 6.2 ✅ Repository Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Implement BookRepository with CRUD methods
+- [x] Methods: create, findById, findAll, findByGenre, update, delete
 
-#### 6.3 Service Layer
-- [ ] Implement BookService with business logic
-- [ ] Implement discount calculation logic
-- [ ] Handle business validation and errors
+#### 6.3 ✅ Service Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Implement BookService with business logic
+- [x] Implement discount calculation logic
+- [x] Handle business validation and errors
 
-#### 6.4 Controller Layer
-- [ ] Implement BookController with HTTP handlers
-- [ ] Handle request/response formatting
-- [ ] Validation middleware with Zod
+#### 6.4 ✅ Controller Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Implement BookController with HTTP handlers
+- [x] Handle request/response formatting
+- [x] Validation middleware with Zod
 
-#### 6.5 Routes Layer
-- [ ] Define book routes
-- [ ] Connect routes to controllers
-- [ ] Set up Express app with middleware
+#### 6.5 ✅ Routes Layer
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Define book routes
+- [x] Connect routes to controllers
+- [x] Set up Express app with middleware
 
-#### 6.6 Middleware & Error Handling
-- [ ] Create custom error classes (NotFoundError, ValidationError)
-- [ ] Implement centralized error handling middleware
-- [ ] Set up request logging
+#### 6.6 ✅ Middleware & Error Handling
+**Status:** COMPLETE
+**Date:** 2025-11-10
+- [x] Create custom error classes (NotFoundError, ValidationError) - completed in Step 6.3
+- [x] Implement centralized error handling middleware
+- [x] Set up request logging
 
-### 7. Write tests alongside implementation
-**Status:** Not Started
+### 7. ✅ Write tests alongside implementation
+**Status:** COMPLETE
+**Date:** 2025-11-12
 
-#### 7.1 Unit Tests (Jest)
-- [ ] Test BookService discount calculation logic
-- [ ] Test edge cases (empty genre, invalid discount, etc.)
-- [ ] Mock repository layer
+#### 7.1 ✅ Unit Tests (Jest)
+**Status:** COMPLETE
+**Date:** 2025-11-12
+- [x] Test BookService discount calculation logic
+- [x] Test edge cases (empty genre, invalid discount, etc.)
+- [x] Mock repository layer
+- [x] Test all CRUD operations (createBook, getBookById, getAllBooks, getBooksByGenre, updateBook, deleteBook)
+- [x] Test validation errors (price validation, discount percentage validation)
+- [x] Test NotFoundError scenarios
+- [x] 24 tests total, all passing ✓
+- [x] File: `src/services/__tests__/book.service.test.ts`
 
-#### 7.2 Integration Tests (Supertest)
-- [ ] Test POST /books (create)
-- [ ] Test GET /books/:id (read)
-- [ ] Test PUT /books/:id (update)
-- [ ] Test DELETE /books/:id (delete)
-- [ ] Test GET /books?genre=X (filter by genre)
-- [ ] Test GET /books/discounted-price?genre=X&discount=Y
-- [ ] Test error cases (404, validation errors)
+#### 7.2 ✅ Integration Tests (Supertest)
+**Status:** COMPLETE
+**Date:** 2025-11-12
+- [x] Test POST /books (create) - 5 tests
+- [x] Test GET /books/:id (read) - 3 tests
+- [x] Test GET /books (all and filter by genre) - 4 tests
+- [x] Test PUT /books/:id (update) - 6 tests
+- [x] Test DELETE /books/:id (delete) - 3 tests
+- [x] Test GET /books/discounted-price?genre=X&discount=Y - 11 tests
+- [x] Test error cases (404, validation errors, edge cases)
+- [x] 32 tests total, all passing ✓
+- [x] File: `src/routes/__tests__/book.routes.test.ts`
+- [x] Uses test database (separate from main database)
 
-### 8. Create README with setup instructions
-**Status:** Not Started
-**Sections to include:**
-- [ ] Project description
-- [ ] Prerequisites
-- [ ] Installation instructions
-- [ ] Environment setup (.env)
-- [ ] How to run the application
-- [ ] How to run tests
-- [ ] API endpoint documentation
-- [ ] Example requests/responses
+**Test Summary:**
+- Total tests: 56 (24 unit + 32 integration)
+- All tests passing ✓
+- Coverage includes success paths, error paths, edge cases, and validation
+
+### 8. ✅ Create README with setup instructions
+**Status:** COMPLETE
+**Date:** 2025-11-12
+**Tasks:**
+- [x] Project description
+- [x] Prerequisites
+- [x] Installation instructions
+- [x] Environment setup (.env)
+- [x] How to run the application
+- [x] How to run tests
+- [x] API endpoint documentation
+- [x] Example requests/responses
+- [x] Error response format
+- [x] Architecture overview
+- [x] Tech stack
 
 ## Notes
 
