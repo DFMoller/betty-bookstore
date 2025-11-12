@@ -24,13 +24,7 @@ export const updateBookSchema = z.object({
  * Validation schema for book ID parameter.
  */
 export const bookIdSchema = z.object({
-  id: z.string().transform((val) => {
-    const num = parseInt(val, 10);
-    if (isNaN(num)) {
-      throw new Error('ID must be a valid number');
-    }
-    return num;
-  }),
+  id: z.coerce.number().int('ID must be a valid integer').positive('ID must be a positive number'),
 });
 
 /**
@@ -45,14 +39,5 @@ export const genreQuerySchema = z.object({
  */
 export const discountedPriceQuerySchema = z.object({
   genre: z.string().min(1, 'Genre is required'),
-  discount: z.string().transform((val) => {
-    const num = parseFloat(val);
-    if (isNaN(num)) {
-      throw new Error('Discount must be a valid number');
-    }
-    if (num < 0 || num > 100) {
-      throw new Error('Discount must be between 0 and 100');
-    }
-    return num;
-  }),
+  discount: z.coerce.number().min(0, 'Discount must be at least 0').max(100, 'Discount must be at most 100'),
 });
