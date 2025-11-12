@@ -6,12 +6,7 @@ import logger from '../config/logger';
 /**
  * Centralized error handling middleware.
  */
-export const errorHandler = (
-  error: Error,
-  _req: Request,
-  res: Response,
-  _next: NextFunction
-): void => {
+export const errorHandler = (error: Error, _req: Request, res: Response, _next: NextFunction): void => {
   // Log the error.
   logger.error(`Error: ${error.message}`, { error: error.stack });
 

@@ -9,9 +9,7 @@ export class BookRepository {
    * Create a new book in the database.
    */
   create(bookData: CreateBookDTO): Book {
-    const stmt = db.prepare(
-      'INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)'
-    );
+    const stmt = db.prepare('INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)');
 
     const result = stmt.run(bookData.title, bookData.author, bookData.genre, bookData.price);
 
@@ -65,7 +63,7 @@ export class BookRepository {
 
     // Build dynamic UPDATE query based on provided fields.
     const updates: string[] = [];
-    const values: any[] = [];
+    const values: (string | number)[] = [];
 
     if (bookData.title !== undefined) {
       updates.push('title = ?');

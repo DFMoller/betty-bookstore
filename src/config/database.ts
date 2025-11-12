@@ -57,9 +57,7 @@ export const initializeDatabase = (dbPath?: string, shouldSeed: boolean = true):
       const seedDataRaw = fs.readFileSync(seedDataPath, 'utf-8');
       const seedData: SeedBook[] = JSON.parse(seedDataRaw);
 
-      const insertStmt = db.prepare(
-        'INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)'
-      );
+      const insertStmt = db.prepare('INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)');
 
       const insertMany = db.transaction((books: SeedBook[]) => {
         for (const book of books) {

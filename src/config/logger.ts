@@ -14,18 +14,11 @@ const logFormat = printf(({ level, message, timestamp, stack }) => {
  */
 const logger = winston.createLogger({
   level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-  format: combine(
-    errors({ stack: true }),
-    timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    logFormat
-  ),
+  format: combine(errors({ stack: true }), timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), logFormat),
   transports: [
     // Console transport.
     new winston.transports.Console({
-      format: combine(
-        colorize(),
-        logFormat
-      ),
+      format: combine(colorize(), logFormat),
     }),
     // File transport for errors.
     new winston.transports.File({
