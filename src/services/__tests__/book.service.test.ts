@@ -1,3 +1,11 @@
+// Mock the database module BEFORE any imports.
+jest.mock('../../config/database', () => ({
+  __esModule: true,
+  default: {}, // Mock database object (not used in unit tests).
+  getDatabase: jest.fn(),
+  initializeDatabase: jest.fn(),
+}));
+
 import { BookService } from '../book.service';
 import { BookRepository } from '../../repositories/book.repository';
 import { Book, CreateBookDTO, UpdateBookDTO } from '../../models';
