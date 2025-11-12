@@ -139,17 +139,21 @@ This document tracks the implementation progress of the Bookstore API.
 - All tests passing ✓
 - Coverage includes success paths, error paths, edge cases, and validation
 
-### 8. Create README with setup instructions
-**Status:** Not Started
-**Sections to include:**
-- [ ] Project description
-- [ ] Prerequisites
-- [ ] Installation instructions
-- [ ] Environment setup (.env)
-- [ ] How to run the application
-- [ ] How to run tests
-- [ ] API endpoint documentation
-- [ ] Example requests/responses
+### 8. ✅ Create README with setup instructions
+**Status:** COMPLETE
+**Date:** 2025-11-12
+**Tasks:**
+- [x] Project description
+- [x] Prerequisites
+- [x] Installation instructions
+- [x] Environment setup (.env)
+- [x] How to run the application
+- [x] How to run tests
+- [x] API endpoint documentation
+- [x] Example requests/responses
+- [x] Error response format
+- [x] Architecture overview
+- [x] Tech stack
 
 ## Notes
 

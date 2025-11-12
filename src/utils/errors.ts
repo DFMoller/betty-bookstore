@@ -1,4 +1,8 @@
 /**
+ * Utility module for custom error classes used the service layer and controllers.
+ */
+
+/**
  * Base class for custom application errors.
  */
 export class AppError extends Error {

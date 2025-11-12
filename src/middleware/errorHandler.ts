@@ -42,6 +42,7 @@ export const errorHandler = (error: Error, _req: Request, res: Response, _next: 
     success: false,
     error: {
       code: 'INTERNAL_SERVER_ERROR',
+      // Do not expose internal error details in production.
       message: process.env.NODE_ENV === 'production' ? 'Internal server error' : error.message,
       statusCode: 500,
     },

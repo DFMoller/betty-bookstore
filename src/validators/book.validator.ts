@@ -1,3 +1,6 @@
+/**
+ * Validation schemas for validating incoming data in request controllers.
+ */
 import { z } from 'zod';
 
 /**
