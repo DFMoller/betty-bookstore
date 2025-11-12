@@ -104,8 +104,9 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Implement centralized error handling middleware
 - [x] Set up request logging
 
-### 7. Write tests alongside implementation
-**Status:** In Progress
+### 7. ✅ Write tests alongside implementation
+**Status:** COMPLETE
+**Date:** 2025-11-12
 
 #### 7.1 ✅ Unit Tests (Jest)
 **Status:** COMPLETE
@@ -117,15 +118,26 @@ This document tracks the implementation progress of the Bookstore API.
 - [x] Test validation errors (price validation, discount percentage validation)
 - [x] Test NotFoundError scenarios
 - [x] 24 tests total, all passing ✓
+- [x] File: `src/services/__tests__/book.service.test.ts`
 
-#### 7.2 Integration Tests (Supertest)
-- [ ] Test POST /books (create)
-- [ ] Test GET /books/:id (read)
-- [ ] Test PUT /books/:id (update)
-- [ ] Test DELETE /books/:id (delete)
-- [ ] Test GET /books?genre=X (filter by genre)
-- [ ] Test GET /books/discounted-price?genre=X&discount=Y
-- [ ] Test error cases (404, validation errors)
+#### 7.2 ✅ Integration Tests (Supertest)
+**Status:** COMPLETE
+**Date:** 2025-11-12
+- [x] Test POST /books (create) - 5 tests
+- [x] Test GET /books/:id (read) - 3 tests
+- [x] Test GET /books (all and filter by genre) - 4 tests
+- [x] Test PUT /books/:id (update) - 6 tests
+- [x] Test DELETE /books/:id (delete) - 3 tests
+- [x] Test GET /books/discounted-price?genre=X&discount=Y - 11 tests
+- [x] Test error cases (404, validation errors, edge cases)
+- [x] 32 tests total, all passing ✓
+- [x] File: `src/routes/__tests__/book.routes.test.ts`
+- [x] Uses test database (separate from main database)
+
+**Test Summary:**
+- Total tests: 56 (24 unit + 32 integration)
+- All tests passing ✓
+- Coverage includes success paths, error paths, edge cases, and validation
 
 ### 8. Create README with setup instructions
 **Status:** Not Started
