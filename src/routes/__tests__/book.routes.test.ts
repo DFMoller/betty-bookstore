@@ -477,12 +477,12 @@ describe('Book Routes Integration Tests', () => {
 
     it('should handle decimal discount percentages', async () => {
       // Act.
-      // Fiction books total: 47.97, 15.5% discount = 40.53915.
+      // Fiction books total: 47.97, 15.5% discount = 40.53465, rounded to 40.53.
       const response = await request(app).get('/books/discounted-price?genre=Fiction&discount=15.5');
 
       // Assert.
       expect(response.status).toBe(200);
-      expect(response.body.discountedPrice).toBeCloseTo(40.53915, 2);
+      expect(response.body.discountedPrice).toBe(40.53);
     });
   });
 });

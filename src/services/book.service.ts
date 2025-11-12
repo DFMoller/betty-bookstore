@@ -98,6 +98,7 @@ export class BookService {
     // Apply discount: total_price - (discount_percentage / 100 * total_price).
     const discountedPrice = totalPrice - (discountPercentage / 100) * totalPrice;
 
-    return discountedPrice;
+    // Round to 2 decimal places for currency.
+    return Math.round(discountedPrice * 100) / 100;
   }
 }
