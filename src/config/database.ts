@@ -6,8 +6,6 @@ import * as fs from 'fs';
 // Load environment variables.
 dotenv.config();
 
-const DATABASE_PATH = process.env.DATABASE_PATH || './bookstore.db';
-
 interface SeedBook {
   title: string;
   author: string;
@@ -15,11 +13,19 @@ interface SeedBook {
   price: number;
 }
 
+// Singleton database instance.
+let dbInstance: Database.Database | null = null;
+
 /**
- * Initialize the SQLite database and create the books table if it doesn't exist.
- * Also insert seed data from JSON file for testing purposes.
+ * Create and initialize a SQLite database instance.
+ * Creates the books table if it doesn't exist.
+ *
+ * @param dbPath - Optional path to database file. If not provided, uses DATABASE_PATH env var or default.
+ * @param shouldSeed - Whether to seed the database with initial data if empty. Defaults to true.
  */
-const initializeDatabase = (): Database.Database => {
+export const initializeDatabase = (dbPath?: string, shouldSeed: boolean = true): Database.Database => {
+  const DATABASE_PATH = dbPath || process.env.DATABASE_PATH || './bookstore.db';
+
   // Create or open the database.
   const db = new Database(DATABASE_PATH);
 
@@ -39,36 +45,48 @@ const initializeDatabase = (): Database.Database => {
 
   db.exec(createBooksTable);
 
-  // Check if we need to seed data (only if table is empty).
-  const count = db.prepare('SELECT COUNT(*) as count FROM books').get() as { count: number };
+  // Optionally seed data if table is empty.
+  if (shouldSeed) {
+    const count = db.prepare('SELECT COUNT(*) as count FROM books').get() as { count: number };
 
-  if (count.count === 0) {
-    console.log('Seeding database with initial data...');
+    if (count.count === 0) {
+      console.log('Seeding database with initial data...');
 
-    // Load seed data from JSON file.
-    const seedDataPath = path.join(__dirname, 'seed-data.json');
-    const seedDataRaw = fs.readFileSync(seedDataPath, 'utf-8');
-    const seedData: SeedBook[] = JSON.parse(seedDataRaw);
+      // Load seed data from JSON file.
+      const seedDataPath = path.join(__dirname, 'seed-data.json');
+      const seedDataRaw = fs.readFileSync(seedDataPath, 'utf-8');
+      const seedData: SeedBook[] = JSON.parse(seedDataRaw);
 
-    const insertStmt = db.prepare(
-      'INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)'
-    );
+      const insertStmt = db.prepare(
+        'INSERT INTO books (title, author, genre, price) VALUES (?, ?, ?, ?)'
+      );
 
-    const insertMany = db.transaction((books: SeedBook[]) => {
-      for (const book of books) {
-        insertStmt.run(book.title, book.author, book.genre, book.price);
-      }
-    });
+      const insertMany = db.transaction((books: SeedBook[]) => {
+        for (const book of books) {
+          insertStmt.run(book.title, book.author, book.genre, book.price);
+        }
+      });
 
-    insertMany(seedData);
+      insertMany(seedData);
 
-    console.log(`Seeded ${seedData.length} books into the database.`);
+      console.log(`Seeded ${seedData.length} books into the database.`);
+    }
   }
 
   return db;
 };
 
-// Initialize and export the database instance.
-export const db: Database.Database = initializeDatabase();
+/**
+ * Get the singleton database instance.
+ * Initializes the database if not already initialized.
+ */
+export const getDatabase = (): Database.Database => {
+  if (!dbInstance) {
+    dbInstance = initializeDatabase();
+  }
+  return dbInstance;
+};
 
+// Export singleton instance for backward compatibility.
+const db: Database.Database = getDatabase();
 export default db;
