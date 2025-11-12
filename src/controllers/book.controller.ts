@@ -124,7 +124,7 @@ export class BookController {
       const discountedPrice = this.bookService.calculateDiscountedPrice(genre, discount);
 
       // Return 200 OK with the discounted price.
-      res.status(200).json({ discountedPrice });
+      res.status(200).json({ discountedPrice, genre, discount });
     } catch (error) {
       next(error);
     }
